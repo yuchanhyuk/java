@@ -153,7 +153,7 @@ public class TestUI extends JFrame{
         JLabel c1 = new JLabel("가격 100원");
         JLabel d1= new JLabel("총금액:");
         JLabel k1 = new JLabel("돈 넣기:");
-        JLabel p1 = new JLabel("동전의 종류:");
+        JLabel p1 = new JLabel("돈의 종류:");
         JLabel t1 = new JLabel("거스름돈:");
         a1.setBounds(60, 60,100,200); 
         b1.setBounds(170, 60,100,200);
@@ -336,7 +336,8 @@ public class TestUI extends JFrame{
 ```
 
 
-![image](https://user-images.githubusercontent.com/62733796/79948431-d1f6a680-84ae-11ea-90cb-5628e73d6e82.png)
+![image](https://user-images.githubusercontent.com/62733796/79951104-0e2c0600-84b3-11ea-9871-b20b1971f8f7.png)
+
 
 커피,차,물 사진 밑에 있는 위를 가리키는 화살표 버튼과 아래를 가리키는 화살표 버튼은 화살표 버튼의 위에있는 메뉴의 주문수량을 결정할수 있는 버튼입니다. 커피 밑의 화살표 버튼을 클릭하면 총금액 창에 500이 증가하거나 감소하고 차는 200, 물은 100이 증가하거나 감소합니다.
 
