@@ -25,19 +25,22 @@ import java.awt.GridLayout;
 import java.awt.FlowLayout;
 import javax.swing.JOptionPane;
 import java.util.Arrays;
+import java.util.Collections;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
 public class TestUI extends JFrame{
     Container cPane;
     ImageIcon img;
     JLabel ImgBox;
 
 
-  
+   
     JMenu menu;
     JMenuBar menuBar;
     JMenuItem ExitItem;
 
-    //Panel, button 및 JtextArea
+    
     JPanel panel;
     JTextArea testArea;
     JButton a,b,c,d,m;
@@ -45,22 +48,28 @@ public class TestUI extends JFrame{
     int num1=0;
     int num2=0;
     int num3=0;
-    int k3value=0; 
-    int val1=0;
-    int mvalue=0;
+    Integer k3value=0; 
+    Integer val1=0,val2=0,val3=0;
+    Integer mvalue=0;
     int num10=0;
-    int[] array=new int[100]; 
-    int[] num8= new int[100]; 
+    Integer[] array=new Integer[100]; 
+    Integer[] num8= new Integer[100]; 
+    Integer[] array2= new Integer[100]; 
     JTextField a3,b3,d3,c3,k3,p3,y3;
+    
     TestListenr listener;
 
 
+
+    /*****************************************************************************
+     * 생성자
+     ****************************************************************************/
     public TestUI(){
 
         setLayout(null); 
-        CreateMenu();
+        CreateMenu(); 
         CreatePanel();
-        setTitle("자판기");
+        setTitle("자판기"); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         setSize(400, 700); 
         setVisible(true); 
@@ -69,6 +78,9 @@ public class TestUI extends JFrame{
 
     }
 
+    /*****************************************************************************
+     * 메뉴바를 생성
+     ****************************************************************************/
     public void CreateMenu() {
 
         menuBar = new JMenuBar(); 
@@ -76,7 +88,7 @@ public class TestUI extends JFrame{
         menuBar.add(menu); 
         ExitItem = new JMenuItem("종료"); 
         menu.add(ExitItem); 
-        menuBar.setBorder(BorderFactory.createLineBorder(Color.gray));
+        menuBar.setBorder(BorderFactory.createLineBorder(Color.gray)); 
 
         listener = new TestListenr(); 
         ExitItem.addActionListener(listener); 
@@ -87,10 +99,10 @@ public class TestUI extends JFrame{
     public void CreatePanel() {
 
         panel = new JPanel(); 
-        panel.setLayout(null); 
+        panel.setLayout(null);
         panel.setBounds(0, 0, 500, 600); 
 
-        testArea = new JTextArea(); 
+        testArea = new JTextArea();  
         testArea.setBounds(110, 510,200,30); 
         testArea.setEditable(false); 
 
@@ -107,7 +119,7 @@ public class TestUI extends JFrame{
         e5 = new JButton("∧");
         e6 = new JButton("∨");
 
-        a.setBounds(50, 50, 80, 120); 
+        a.setBounds(50, 50, 80, 120);
         b.setBounds(160,50, 80, 120);
         c.setBounds(270,50, 80, 120);
         d.setBounds(170,450, 60, 50);
@@ -121,7 +133,7 @@ public class TestUI extends JFrame{
         e6.setBounds(285, 275,50,25);
 
 
-        panel.add(a);
+        panel.add(a); 
         panel.add(b);
         panel.add(c);
         panel.add(d);
@@ -146,18 +158,18 @@ public class TestUI extends JFrame{
         e5.addActionListener(listener);
         e6.addActionListener(listener);
 
-        add(panel); 
+        add(panel);  
 
         JLabel a1 = new JLabel("가격 500원");
         JLabel b1 = new JLabel("가격 200원");
         JLabel c1 = new JLabel("가격 100원");
-        JLabel d1= new JLabel("총금액:");
+        JLabel d1= new JLabel("총금액:"); 
         JLabel k1 = new JLabel("돈 넣기:");
         JLabel p1 = new JLabel("돈의 종류:");
         JLabel t1 = new JLabel("거스름돈:");
-        a1.setBounds(60, 60,100,200); 
-        b1.setBounds(170, 60,100,200);
-        c1.setBounds(280, 60,100,200);
+        a1.setBounds(60, 80,100,200); 
+        b1.setBounds(170, 80,100,200);
+        c1.setBounds(280, 80,100,200);
         d1.setBounds(150,230,100,200);
         k1.setBounds(145,270,100,200);
         p1.setBounds(100,310,100,200);
@@ -235,7 +247,7 @@ public class TestUI extends JFrame{
         public void actionPerformed(ActionEvent event) {
 
 
-            if (event.getSource() == ExitItem) {  
+            if (event.getSource() == ExitItem) {   
                 System.exit(1);   
             } else if (event.getSource() ==e1){
                 val1=Integer.parseInt(d3.getText());
@@ -264,56 +276,71 @@ public class TestUI extends JFrame{
            	 val1=val1-200;
            	 
            	 num2=num2-1;
-           	 a3.setText(String.valueOf(num2));
+           	 b3.setText(String.valueOf(num2));
                 d3.setText(String.valueOf(val1));
            	 }
            }
             else if(event.getSource()==e6) {
-           	 val1=Integer.parseInt(d3.getText());
+           	 val3=Integer.parseInt(d3.getText());
            	 if(val1>0&&num3>0)
            	 {
            	 val1=val1-100;
            	 
            	 num3=num3-1;
-           	 a3.setText(String.valueOf(num3));
+           	 c3.setText(String.valueOf(num3));
                 d3.setText(String.valueOf(val1));
            	 }
            }
             else if (event.getSource() == e3){
 
-                val1=Integer.parseInt(d3.getText());
-                val1=val1+200;
+            	 val1=Integer.parseInt(d3.getText());
+                     val1=val1+200;
 
-                num2=num2+1;
+                     num2=num2+1;
 
-                b3.setText(String.valueOf(num2));
-                d3.setText(String.valueOf(val1));
+                     b3.setText(String.valueOf(num2));
+                     d3.setText(String.valueOf(val1));
+              
+               
             }else if (event.getSource() == e5){
-                val1=Integer.parseInt(d3.getText());
+            	
+            		 val1=Integer.parseInt(d3.getText());
 
-                val1=val1+100;
+                     val1=val1+100;
 
-                num3=num3+1;
+                     num3=num3+1;
 
-                c3.setText(String.valueOf(num3));
-                d3.setText(String.valueOf(val1));
+                     c3.setText(String.valueOf(num3));
+                     d3.setText(String.valueOf(val1));
+              	 
+             
 
             }else if(event.getSource()==d) { 
                 k3value=Integer.parseInt(k3.getText());
                 k3value-=val1;
+             
+                List<Integer> arraylist = Arrays.asList(array);
+              
+                Collections.reverse(arraylist);
+                Integer [] array2 = arraylist.toArray(new Integer[arraylist.size()]);
 
-                for(int i=0;i<array.length;i++)
+            
+                for(int i=0;i<array2.length;i++)
                 {
-                    if(k3value/array[i]>0&&k3value>=array[i])
+                    if(k3value/array2[i]>0&&k3value>=array2[i])
                     {
-                        num8[i]=k3value/array[i];
-                        k3value=k3value-num8[i]*array[i];
+                        num8[i]=k3value/array2[i];
+                        k3value=k3value-num8[i]*array2[i];
+                        testArea.append(array2[i]+"원 "+num8[i]+"개  ");
                     }
                     else
                     {
-                        break;
+                        continue;
+                        
                     }
-                    testArea.append(array[i]+"원 "+num8[i]+"개  ");
+                    
+                   
+                    
                 }
             }
             else if(event.getSource()==m) {
@@ -321,13 +348,12 @@ public class TestUI extends JFrame{
                 array[num10]=mvalue;
                 num10++;
                 p3.requestFocus();
-
-                p3.selectAll();//
+                p3.selectAll();
                 p3.setText(String.valueOf(""));
             }
         }
     }
- 
+  
     public static void main(String args[]) {
 
         TestUI test = new TestUI();
