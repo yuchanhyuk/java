@@ -61,7 +61,9 @@ public class TestUI extends JFrame{
 
 
 
-    
+    /*****************************************************************************
+     * 생성자
+     ****************************************************************************/
     public TestUI(){
 
         setLayout(null); 
@@ -76,7 +78,9 @@ public class TestUI extends JFrame{
 
     }
 
-    
+    /*****************************************************************************
+     * 메뉴바를 생성
+     ****************************************************************************/
     public void CreateMenu() {
 
         menuBar = new JMenuBar(); 
@@ -314,10 +318,16 @@ public class TestUI extends JFrame{
             }else if(event.getSource()==d) { 
                 k3value=Integer.parseInt(k3.getText());
                 k3value-=val1;
-             
-                List<Integer> arraylist = Arrays.asList(array);
-              
+              Integer [] array3=new Integer[num10];
+              for(int i=0;i<num10;i++)
+              {
+            	  array3[i]=array[i];
+              }
+                List<Integer> arraylist = Arrays.asList(array3);
+                Collections.sort(arraylist);
+                
                 Collections.reverse(arraylist);
+                
                 Integer [] array2 = arraylist.toArray(new Integer[arraylist.size()]);
 
             
